@@ -7,13 +7,15 @@ public class Tank {
     private Dir dir = Dir.DOWN;
     private final int SPEED = 10;
     private boolean moving = false;
+    private TankFrame tf = null;
 
 
-    public Tank(int x, int y, Dir dir) {
+    public Tank(int x, int y, Dir dir, TankFrame tf) {
         super();
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.tf = tf;
     }
 
     public boolean isMoving() {
@@ -60,5 +62,9 @@ public class Tank {
 
     public void setDir(Dir dir) {
         this.dir = dir;
+    }
+
+    public void fire() {
+        tf.b = new Bullet(this.x, this.y, this.dir);
     }
 }
